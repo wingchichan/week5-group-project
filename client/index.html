@@ -2,12 +2,61 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <link rel="stylesheet" href="src/style.css">
+    <title>Job Application Tracker</title>
   </head>
+
   <body>
-    <div id="app"></div>
+
+    <header>
+      <div class="header-content">
+        <a href="#" class="logo-link">
+          <span class="logo">TrackIt</span>
+        </a>
+        <div class="header-middle">
+          <button class="nav-button">Dashboard</button>
+        </div>
+        <div class="header-right">
+          <button class="nav-button">Profile</button>
+        </div>
+      </div>
+    </header>    
+
+    <main>
+      <section id="form-section">
+        <h2>Add New Job Application</h2>
+        <form id="application-form">
+          <label for="company">Company:</label>
+          <input type="text" id="company" name="company" required>
+  
+          <label for="position">Job Title:</label>
+          <input type="text" id="position" name="position" required>
+  
+          <label for="applied-date">Date Applied:</label>
+          <input type="date" id="applied-date" name="applied-date" required>
+  
+          <label for="status">Status:</label>
+          <select id="status" name="status" required>
+            <option value="pending">Pending</option>
+            <option value="interview">Interview Scheduled</option>
+            <option value="accepted">Accepted</option>
+            <option value="rejected">Rejected</option>
+          </select>
+
+          <label for="notes">Notes:</label>
+          <input type="text" id="notes" name="notes" required>
+  
+          <button type="submit">Add Application</button>
+        </form>
+      </section>
+  
+      <section id="applications-list">
+        <h2>Tracked Applications</h2>
+        <div id="applications-container"></div>
+      </section>
+    </main>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
