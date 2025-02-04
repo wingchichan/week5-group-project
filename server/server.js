@@ -19,10 +19,10 @@ app.get("/", (req, res) => res.json("Welcome to the Job Application Tracker!"));
 
 // GET all job applications
 app.get("/applications", async (req, res) => {
-  const result = await db.query("SELECT * FROM job_applications");
-  const jobApplication = result.rows;
-  console.log(result);
-  res.json(jobApplication);
+    const result = await db.query("SELECT * FROM job_applications");
+    const jobApplication = result.rows;
+    console.log(result);
+    res.json(jobApplication);
 });
 
 // DELETE a job application by ID
@@ -50,5 +50,5 @@ app.get("/applications", async (req, res) => {
 
 // Start the server
 app.listen(process.env.PORT || 5678, () => {
-  console.log(`App running on ${process.env.PORT || 5678}`);
+    console.log(`App running on ${process.env.PORT || 5678}`);
 });
