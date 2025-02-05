@@ -1,11 +1,10 @@
-
-
 const companyElem = document.getElementById('company');
 const positionElem = document.getElementById('position');
 const appliedDateElem = document.getElementById('applied-date');
 const statusElem = document.getElementById('status');
 const notesElem = document.getElementById('notes');
 const applicationsContainerElem = document.getElementById('applications-container');
+const formElem = document.getElementById("application-form")
 
 const API_URL = "http://localhost:5678";
 
@@ -57,7 +56,6 @@ function displayApplications(entries) {
   });
 }
 
-displayApplications();
 
 
 //function to delete entry
@@ -67,4 +65,32 @@ async function handleDelete(id) {
   });
   getApplications()
 }
+
+formElem.addEventListener("submit", async (event) => {
+  event.preventDefault(); // Prevents page from refreshing when submitted
+
+  // Send a POST request to the server with the new job application data
+  await fetch(`${API_URL}/applications`, {
+    method: "POST", // Sends a POST request to the server to add a new entry
+    headers: { "Content-Type": "application/json" }, // Specifies that the data is in JSON format
+    body: JSON.stringify({
+      company: companyElem.value, 
+      job_title: positionElem.value,
+      date: appliedDateElem.value, 
+      status: statusElem.value, 
+      notes: notesElem.value, 
+    }),
+  });
+
+    // Clear form inputs after submission
+    companyElem.value = "";
+    positionElem.value = "";
+    appliedDateElem.value = "";
+    statusElem.value = "";
+    notesElem.value = "";
+
+    // Refresh the applications list
+    getApplications();
+});
+
 
