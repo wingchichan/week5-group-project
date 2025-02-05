@@ -1,12 +1,11 @@
 
+
 const companyElem = document.getElementById('company');
 const positionElem = document.getElementById('position');
 const appliedDateElem = document.getElementById('applied-date');
 const statusElem = document.getElementById('status');
 const notesElem = document.getElementById('notes');
 const applicationsContainerElem = document.getElementById('applications-container');
-
-
 
 const API_URL = "http://localhost:5678";
 
@@ -58,6 +57,9 @@ function displayApplications(entries) {
   });
 }
 
+displayApplications();
+
+
 //function to delete entry
 async function handleDelete(id) {
   const response = await fetch (`http://localhost:5678/applications/${id}` ,{
@@ -65,3 +67,4 @@ async function handleDelete(id) {
   });
   getApplications()
 }
+
