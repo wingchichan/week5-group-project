@@ -34,7 +34,7 @@ function displayApplications(entries) {
     // Set text content
     h3.innerText = `Job Title: ${entry.job_title}`;
     pCompany.innerText = `Company: ${entry.company}`;
-    pDate.innerText = `Date Applied: ${entry.date}`;
+    pDate.innerText = `Date Applied: ${formatDate(entry.date)}`;
     pStatus.innerText = `Status: ${entry.status}`;
     pNotes.innerText = `Notes: ${entry.notes}`;
     deleteButton.innerText = "Delete Application";
@@ -93,4 +93,14 @@ formElem.addEventListener("submit", async (event) => {
     getApplications();
 });
 
+// Function to format date in YYYY-MM-DD format
+function formatDate(dateString) {
+  const date = new Date(dateString); // Convert string to Date object
+  const year = date.getFullYear(); // Get year
+  const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Get month (0-based index, so +1)
+  const day = date.getDate().toString().padStart(2, '0'); // Get day
+
+  // Return formatted date as YYYY-MM-DD
+  return `${year}-${month}-${day}`;
+}
 
