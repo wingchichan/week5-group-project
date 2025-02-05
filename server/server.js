@@ -34,19 +34,26 @@ app.delete("/applications/:id", async (req, res) => {
     res.json({ message: "Deleted", id: req.params.id });
 });
 
-// POST a new job application
-// app.post("/applications", async (req, res) => {
-//   const { company, job_title, date, status, notes } = req.body; //quicker way of
+app.post("/applications", async (req, res) => { 
+    const body = req.body; //req is the data the client is sending in a specific request
+    console.log(body);
 
-//   // Use a safer parameterized query
-//   const data = await db.query(
-//     `INSERT INTO job_applications (company, job_title, date, status, notes)
-//          VALUES ($1, $2, $3, $4, $5) RETURNING *`,
-//     [company, job_title, date, status, notes]
-//   );
+    const companyFromClient = body.company;
+    const jobTitleFromClient = body.job_title;
+    const dateFromClient = body.date;
+    const statusFromClient = body.status;
+    const notesFromClient = body.notes;
 
-//   res.json(data.rows[0]); // Send back the newly inserted row
-// });
+
+    const data = await db.query(
+        `INSERT INTO job_applications (company, job_title, date, status, notes)
+            VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+        [companyFromClient, jobTitleFromClient, dateFromClient, statusFromClient, notesFromClient]
+    );
+
+    res.json(data.rows[0]); // Send back the newly inserted row
+});
+
 
 // Start the server
 app.listen(process.env.PORT || 5678, () => {
