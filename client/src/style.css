@@ -1,111 +1,149 @@
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-  }
-  
-  header {
-    background-color: #0077cc;
-    color: white;
-    padding: 1rem 0;
-  }
-  
-  .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-  }
-  
-  .logo-link {
-    text-decoration: none;
-  }
-  
-  .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-    text-transform: uppercase;
-    text-decoration: none;
-  }  
-  
-  .header-middle {
-    flex-grow: 1;
-    text-align: center;
-  }
-  
-  .header-right {
-    text-align: right;
-  }
-  
-  .nav-button {
-    background-color: #ffffff;
-    color: #0077cc;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .nav-button:hover {
-    background-color: #0077cc;
-    color: white;
-  }
-  
-  main {
-    width: 100%;
-    padding: 4rem;
-    max-width: 1000px;
-    margin: 2rem auto;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }  
-  
-  form {
-    display: grid;
-    gap: 1rem;
-    max-width: 400px;
-  }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #94b0ff;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
 
-  #form-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f9f9f9;
-    padding: 2rem;
-  }
+header {
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 4px 8px rgba(51, 51, 51, 0.3);
+}
 
-  h2 {
-    font-size: 1.5rem;
-    text-align: center;
-    color: #333;
-  }
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 
-  
-  input, select, button {
-    padding: 0.5rem;
-    font-size: 1rem;
+}
+
+.logo-link {
+  text-decoration: none;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: transparent;
+  background: linear-gradient(50deg, #a8c0ff,  #d1e0f3, #f4c6f5, #a2edf4,  #d0efff);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradientWave 20s ease infinite;
+}
+
+@keyframes gradientWave {
+  0% {
+    background-position: 200% 0;
   }
-  
-  button {
-    background-color: #0077cc;
-    color: white;
-    border: none;
-    cursor: pointer;
+  100% {
+    background-position: -200% 0;
   }
-  
-  button:hover {
-    background-color: #005fa3;
-  }
-  
-  #applications-container {
-    margin-top: 1rem;
-    padding: 1rem;
-    background-color: #ffffff;
-    border-radius: 8px;
-  }  
+}
+.nav-button {
+  background-color: white;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+main {
+  width: 100%;
+  padding: 4rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.section {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 48%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+  max-width: 400px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+input, select, button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+button {
+  background-color: rgba(211, 201, 201, 0.2);
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: rgb(250, 235, 235);
+  color: black;
+}
+
+#applications-container {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+select, option {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+option {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+}
+
+select:focus, option:focus {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
