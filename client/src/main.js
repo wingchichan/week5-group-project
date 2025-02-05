@@ -1,9 +1,21 @@
+
 const companyElem = document.getElementById('company');
 const positionElem = document.getElementById('position');
 const appliedDateElem = document.getElementById('applied-date');
 const statusElem = document.getElementById('status');
 const notesElem = document.getElementById('notes');
 const applicationsContainerElem = document.getElementById('applications-container');
+
+
+
+const API_URL = "http://localhost:5678";
+
+async function getApplications() {
+  const response = await fetch(`${API_URL}/applications`);
+  const data = await response.json();
+  console.log(data);
+}
+getApplications();
 
 
 // Function to display job applications on the page
