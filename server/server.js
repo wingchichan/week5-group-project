@@ -29,7 +29,7 @@ app.get("/applications", async (req, res) => {
 app.delete("/applications/:id", async (req, res) => {
     console.log(req.params.id);
 
-    await db.query("DELETE FROM job_applications WHERE id = $1", [req.params.id]);
+    const deleted = await db.query("DELETE FROM job_applications WHERE id = $1", [req.params.id]);
 
     res.json({ message: "Deleted", id: req.params.id });
 });
