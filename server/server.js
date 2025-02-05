@@ -9,7 +9,7 @@ app.use(express.json());
 dotenv.config();
 
 const db = new pg.Pool({
-    connectionString: process.env.DB_CONN
+  connectionString: process.env.DB_CONN,
 });
 
 //Adding GET POST DELETE
@@ -26,13 +26,13 @@ app.get("/applications", async (req, res) => {
 });
 
 // DELETE a job application by ID
-// app.delete("/applications/:id", async (req, res) => {
-//   console.log(req.params.id);
+app.delete("/applications/:id", async (req, res) => {
+    console.log(req.params.id);
 
-//   await db.query("DELETE FROM job_applications WHERE id = $1", [req.params.id]);
+    await db.query("DELETE FROM job_applications WHERE id = $1", [req.params.id]);
 
-//   res.json({ message: "Deleted", id: req.params.id });
-// });
+    res.json({ message: "Deleted", id: req.params.id });
+});
 
 // POST a new job application
 // app.post("/applications", async (req, res) => {
