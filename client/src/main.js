@@ -1,10 +1,15 @@
-const companyElem = document.getElementById('company');
-const positionElem = document.getElementById('position');
-const appliedDateElem = document.getElementById('applied-date');
-const statusElem = document.getElementById('status');
-const notesElem = document.getElementById('notes');
-const applicationsContainerElem = document.getElementById('applications-container');
-const formElem = document.getElementById("application-form")
+const companyElem = document.getElementById("company");
+const positionElem = document.getElementById("position");
+const appliedDateElem = document.getElementById("applied-date");
+const statusElem = document.getElementById("status");
+const notesElem = document.getElementById("notes");
+const applicationsContainerElem = document.getElementById(
+  "applications-container"
+);
+
+const formElem = document.getElementById("application-form");
+const formSectionEditElem = document.getElementById("form-section-edit");
+const formSectionElem = document.getElementById("form-section");
 
 const API_URL = "http://localhost:5678";
 
@@ -12,10 +17,9 @@ async function getApplications() {
   const response = await fetch(`${API_URL}/applications`);
   const data = await response.json();
   console.log(data);
-  displayApplications(data)
+  displayApplications(data);
 }
 getApplications();
-
 
 // Function to display job applications on the page
 function displayApplications(entries) {
@@ -28,7 +32,8 @@ function displayApplications(entries) {
     const pDate = document.createElement("p");
     const pStatus = document.createElement("p");
     const pNotes = document.createElement("p");
-    const deleteButton = document.createElement("button")
+    const deleteButton = document.createElement("button");
+    const editButton = document.createElement("button");
     const div = document.createElement("div");
 
     // Set text content
@@ -38,9 +43,18 @@ function displayApplications(entries) {
     pStatus.innerText = `Status: ${entry.status}`;
     pNotes.innerText = `Notes: ${entry.notes}`;
     deleteButton.innerText = "Delete Application";
+    editButton.innerText = "Edit Application";
 
-    deleteButton.addEventListener("click", function() {
+    deleteButton.addEventListener("click", function () {
       handleDelete(entry.id); //calls function to delete entry
+    });
+
+    // eventListener on Edit button which calls handleEdit function
+    editButton.addEventListener("click", function () {
+      // show edit form with existing values
+      showEditForm(entry);
+      // handleEdit(entry.id);
+      console.log("update data");
     });
 
     // Append elements to the div
@@ -49,48 +63,99 @@ function displayApplications(entries) {
     div.appendChild(pDate);
     div.appendChild(pStatus);
     div.appendChild(pNotes);
-    div.appendChild(deleteButton)
+    div.appendChild(deleteButton);
+    div.appendChild(editButton);
 
     // Append the div to the applications container
     applicationsContainerElem.appendChild(div);
   });
 }
 
-
-
 //function to delete entry
 async function handleDelete(id) {
-  const response = await fetch (`http://localhost:5678/applications/${id}` ,{
+  const response = await fetch(`http://localhost:5678/applications/${id}`, {
     method: "DELETE",
   });
-  getApplications()
+  getApplications();
 }
 
+// shows hidden edit form
+function showEditForm(entry) {
+  // hide add form
+  formSectionElem.classList.add("hide");
+  // populate edit form
+  const companyElemEdit = document.getElementById("company-edit");
+  const positionElemEdit = document.getElementById("position-edit");
+  const appliedDateElemEdit = document.getElementById("applied-date-edit");
+  const statusElemEdit = document.getElementById("status-edit");
+  const notesElemEdit = document.getElementById("notes-edit");
+  const idEdit = document.getElementById("id-edit");
+
+  idEdit.value = entry.id;
+  companyElemEdit.value = entry.company;
+  positionElemEdit.value = entry.job_title;
+  appliedDateElemEdit.value = entry.date;
+  statusElemEdit.value = entry.status;
+  notesElemEdit.value = entry.notes;
+
+  // show edit form
+  formSectionEditElem.classList.add("show");
+}
+
+// TODO: Refactor to use FormData
 formElem.addEventListener("submit", async (event) => {
   event.preventDefault(); // Prevents page from refreshing when submitted
-
-  // Send a POST request to the server with the new job application data
+  console.log(statusElem.value);
+  // // Send a POST request to the server with the new job application data
   await fetch(`${API_URL}/applications`, {
     method: "POST", // Sends a POST request to the server to add a new entry
     headers: { "Content-Type": "application/json" }, // Specifies that the data is in JSON format
     body: JSON.stringify({
-      company: companyElem.value, 
+      company: companyElem.value,
       job_title: positionElem.value,
-      date: appliedDateElem.value, 
-      status: statusElem.value, 
-      notes: notesElem.value, 
+      date: appliedDateElem.value,
+      status: statusElem.value,
+      notes: notesElem.value,
     }),
   });
-
-    // Clear form inputs after submission
-    companyElem.value = "";
-    positionElem.value = "";
-    appliedDateElem.value = "";
-    statusElem.value = "";
-    notesElem.value = "";
-
-    // Refresh the applications list
-    getApplications();
 });
 
+const applicationFormEdit = document.getElementById("application-form-edit");
+applicationFormEdit.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  await handleEdit();
+  resetForms();
+});
 
+function resetForms() {
+  // clear edit form values
+  // toggle edit form to hide
+  // show add application form
+}
+
+// TODO: Refactor using FormData
+// function to update existing application
+async function handleEdit() {
+  const statusEditElem = document.getElementById("status-edit");
+  const notesEditElem = document.getElementById("notes-edit");
+  const idEditElem = document.getElementById("id-edit");
+
+  const response = await fetch(`${API_URL}/applications/${idEditElem.value}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      status: statusEditElem.value,
+      notes: notesEditElem.value,
+    }),
+  });
+}
+
+// Clear form inputs after submission
+companyElem.value = "";
+positionElem.value = "";
+appliedDateElem.value = "";
+statusElem.value = "";
+notesElem.value = "";
+
+// Refresh the applications list
+getApplications();
