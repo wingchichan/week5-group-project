@@ -14,6 +14,7 @@ async function getApplications() {
   const response = await fetch(`${API_URL}/applications`);
   const data = await response.json();
   console.log(data);
+  displayApplications(data)
 }
 getApplications();
 
@@ -38,7 +39,7 @@ function displayApplications(entries) {
     pDate.innerText = `Date Applied: ${entry.date}`;
     pStatus.innerText = `Status: ${entry.status}`;
     pNotes.innerText = `Notes: ${entry.notes}`;
-    deleteButton.inertext = "Delete Application";
+    deleteButton.innerText = "Delete Application";
 
     deleteButton.addEventListener("click", function() {
       handleDelete(entry.id); //calls function to delete entry
@@ -50,6 +51,7 @@ function displayApplications(entries) {
     div.appendChild(pDate);
     div.appendChild(pStatus);
     div.appendChild(pNotes);
+    div.appendChild(deleteButton)
 
     // Append the div to the applications container
     applicationsContainerElem.appendChild(div);
@@ -58,10 +60,8 @@ function displayApplications(entries) {
 
 //function to delete entry
 async function handleDelete(id) {
-  const response = await fetch (`http://localhost:5678/${id}` ,{
+  const response = await fetch (`http://localhost:5678/applications/${id}` ,{
     method: "DELETE",
   });
-  if (res.ok) {
-    getApplications(); // Refresh the list after deletion
-  }
+  getApplications()
 }
