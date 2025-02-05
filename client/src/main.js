@@ -1,4 +1,3 @@
-
 const API_URL = "http://localhost:5678";
 
 async function getApplications() {
@@ -39,4 +38,4 @@ function displayApplications(entries) {
     applicationsContainerElem.appendChild(div);
   });
 }
-
+displayApplications();
