@@ -270,6 +270,8 @@ footer img:hover {
   }
 }
 
+/* EDIT FORM CSS */
+
 .hide {
   display: none;
 }
@@ -279,3 +281,4 @@ footer img:hover {
 #form-section-edit {
   background-color: steelblue;
 }
+/* EDIT FORM CSS */
