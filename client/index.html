@@ -1,43 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="main.js" defer></script>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="src/style.css">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/style.css" />
     <title>Job Application Tracker</title>
   </head>
 
   <body>
     <header>
       <div class="header-content">
-        <a href="#" class="logo-link">
+        <a href="home-page.html" class="logo-link">
           <span class="logo">TrackIt</span>
         </a>
         <div class="header-middle">
-          <button class="nav-button">Dashboard</button>
+          <a href="index.html" class="nav-button">🎯 DASHBOARD</a>
         </div>
         <div class="header-right">
-          <button class="nav-button">Profile</button>
+          <button class="nav-button">🔒 LOG IN</button>
         </div>
       </div>
-    </header>
+    </header>  
 
     <main>
       <div class="container">
         <section id="form-section" class="section">
-          <h2>Add New Job Application</h2>
+          <h2> Add New Job Application</h2>
           <form id="application-form">
             <label for="company">Company:</label>
-            <input type="text" id="company" name="company" required />
-
+            <input type="text" id="company" name="company" required>
+    
             <label for="position">Job Title:</label>
-            <input type="text" id="position" name="position" required />
-
+            <input type="text" id="position" name="position" required>
+    
             <label for="applied-date">Date Applied:</label>
-            <input type="date" id="applied-date" name="applied-date" required />
-
+            <input type="date" id="applied-date" name="applied-date" required>
+    
             <label for="status">Status:</label>
             <select id="status" name="status" required>
               <option value="pending">Pending</option>
@@ -47,41 +45,9 @@
             </select>
 
             <label for="notes">Notes:</label>
-            <input type="text" id="notes" name="notes" />
-
+            <input type="text" id="notes" name="notes" required>
+    
             <button type="submit">Add Application</button>
-          </form>
-        </section>
-        <!-- EDIT FORM -->
-        <section id="form-section-edit" class="section hide">
-          <h2>Update Application</h2>
-          <form id="application-form-edit">
-            <label for="company">Company:</label>
-            <input type="text" id="company-edit" name="company" disabled />
-
-            <label for="position">Job Title:</label>
-            <input type="text" id="position-edit" name="position" disabled />
-
-            <label for="applied-date">Date Applied:</label>
-            <input
-              type="text"
-              id="applied-date-edit"
-              name="applied-date"
-              disabled
-            />
-
-            <label for="status">Status:</label>
-            <select id="status-edit" name="status" required>
-              <option value="pending">Pending</option>
-              <option value="interview">Interview Scheduled</option>
-              <option value="accepted">Accepted</option>
-              <option value="rejected">Rejected</option>
-            </select>
-
-            <label for="notes">Notes:</label>
-            <input type="text" id="notes-edit" name="notes" required />
-            <input type="hidden" id="id-edit" name="id-edit" />
-            <button type="submit">Update Application</button>
           </form>
         </section>
 
@@ -92,6 +58,21 @@
       </div>
     </main>
 
+    <footer>
+      <footer class="footer">
+        <div class="social-media">
+          <a href="https://facebook.com"><img src="https://static.vecteezy.com/system/resources/previews/018/930/476/non_2x/facebook-logo-facebook-icon-transparent-free-png.png" alt="Facebook"></a>
+          <a href="https://twitter.com"><img src="https://static.vecteezy.com/system/resources/previews/042/148/611/non_2x/new-twitter-x-logo-twitter-icon-x-social-media-icon-free-png.png" alt="X"></a>
+          <a href="https://instagram.com"><img src="https://static.vecteezy.com/system/resources/previews/023/986/502/non_2x/instagram-logo-instagram-logo-transparent-instagram-icon-transparent-free-free-png.png"></a>
+      </div>    
+  
+        <p>&copy; 2025 TrackIt. All Rights Reserved.</p>
+      
+      <button id="back-to-top">
+        <a href="#top">↑</a>
+      </button>
+  </footer>
+  
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
