@@ -1,234 +1,241 @@
 /*body and general page settings*/
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #94b0ff;
-    background-size: cover;
-    background-position: center;
-    color: white;
-    min-height: 100vh; /*ensure the page covers the full viewport height*/
-    display: flex;
-    flex-direction: column;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #94b0ff;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  min-height: 100vh; /*ensure the page covers the full viewport height*/
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  color: white;
+  padding: 1rem 0;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo-link {
+  text-decoration: none; /*remove underlining from the logo link*/
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: transparent;
+  background: linear-gradient(
+    50deg,
+    #a8c0ff,
+    #ffffff,
+    #f4c6f5,
+    #aaf8ff,
+    #d0efff
+  ); /*gradient animated logo text effect*/
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradientWave 20s ease infinite;
+}
+
+@keyframes gradientWave {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+} /*animation for gradient wave effect*/
+
+.nav-button {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  padding: 10px 20px;
+  background: transparent;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  display: inline-block;
+}
+
+.nav-button:hover {
+  color: black;
+  text-shadow: none;
+}
+
+/*main section styling*/
+main {
+  width: 100%;
+  max-width: 1000px;
+  margin: 2rem auto;
+  color: white;
+  flex-grow: 1;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.section {
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 50%;
+}
+
+h1 {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+body p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.get-started-btn {
+  background-color: rgba(211, 201, 201, 0.2);
+  padding: 15px 40px;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+  display: block;
+  font-size: 1.5rem;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.get-started-btn:hover {
+  background-color: rgb(250, 235, 235);
+  color: black;
+  text-shadow: none;
+}
+
+#image-section img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s ease; /* smooth zoom effect on hover */
+}
+
+#image-section img:hover {
+  transform: scale(1.1);
+}
+
+/*footer section*/
+.footer {
+  font-family: sans-serif;
+  background-color: white;
+  color: #000000;
+  padding: 30px;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.footer p {
+  font-size: 15px;
+  text-shadow: none;
+}
+
+footer .social-media {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+footer img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  transition: transform 0.2s; /*smooth scaling effect*/
+}
+
+footer img:hover {
+  transform: scale(1.2); /*enlarges image slightly on hover*/
+}
+
+#back-to-top {
+  display: none;
+  position: absolute;
+  bottom: 50px;
+  right: 20px;
+  background-color: #94b0ff;
+  color: white;
+  border-radius: 50%; /*so it's circular button */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+#back-to-top a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+#back-to-top:hover {
+  background-color: #7c97d3;
+}
+
+/*media queries for mobile devices*/
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
   }
 
- header {
-    color: white;
-    padding: 1rem 0;
-  }
-  
- .header-content {
+  .header-content {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
-  }
-  
-  .logo-link {
-    text-decoration: none; /*remove underlining from the logo link*/
-  }
-  
-  .logo {
-    font-size: 2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: transparent;
-    background: linear-gradient(50deg, #a8c0ff, #ffffff, #f4c6f5, #aaf8ff, #d0efff); /*gradient animated logo text effect*/
-    background-size: 400% 400%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: gradientWave 20s ease infinite;
-  }
-  
-  @keyframes gradientWave {
-    0% {
-      background-position: 200% 0;
-    }
-    100% {
-      background-position: -200% 0;
-    }
-  } /*animation for gradient wave effect*/
-  
-  .nav-button {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: white;
-    padding: 10px 20px;
-    background: transparent;
-    cursor: pointer;
-    border: none;
-    text-decoration: none;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    display: inline-block;
-  }
-  
-  .nav-button:hover {
-    color: black;
-    text-shadow: none;
-  }
-  
-  /*main section styling*/
-  main {
-    width: 100%;
-    max-width: 1000px;
-    margin: 2rem auto;
-    color: white;
-    flex-grow: 1;
-  }
-  
-  .container {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-  }
-  
-  .section {
-    border-radius: 10px;
-    padding: 1.5rem;
-    width: 50%;
+    text-align: left;
   }
 
-  h1 { 
-    font-size: 3.5rem;
-    margin-bottom: 2rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  .nav-button {
+    font-size: 0.8rem;
+    padding: 8px 16px;
+    margin: 5px;
   }
-  
-  body p {
+
+  .logo {
     font-size: 1.5rem;
-    margin-bottom: 2rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   }
-  
-  .get-started-btn {
-    background-color: rgba(211, 201, 201, 0.2);
-    padding: 15px 40px;
-    color: white;
-    border: 1px solid white;
-    cursor: pointer;
-    display: block;
-    font-size: 1.5rem;
-    transition: background-color 0.3s ease;
-    font-weight: bold;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+
+  .container {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  .get-started-btn:hover {
-    background-color: rgb(250, 235, 235);
-    color: black;
-    text-shadow: none;
-  }
-  
+
   #image-section img {
     width: 100%;
-    height: auto;
-    border-radius: 10px;
-    object-fit: cover;
-    transition: transform 0.3s ease; /* smooth zoom effect on hover */
-  }
-  
-  #image-section img:hover {
-    transform: scale(1.1);
-  }
-  
-  /*footer section*/
-  .footer {
-    font-family: sans-serif;
-    background-color: white;
-    color: #000000;
-    padding: 30px;
-    text-align: center;
-    width: 100%;
-    margin: 0;
-    box-sizing: border-box;
-    position: relative;
   }
 
-  .footer p {
-    font-size: 15px;
-    text-shadow: none;
+  .footer {
+    font-size: 16px;
+    padding: 20px;
   }
-  
-  footer .social-media {
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }
-  
-  footer img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    transition: transform 0.2s;  /*smooth scaling effect*/
-  }
-  
-  footer img:hover {
-    transform: scale(1.2);  /*enlarges image slightly on hover*/
-  }
-  
-  #back-to-top {
-    display: none;
-    position: absolute;
-    bottom: 50px;
-    right: 20px;
-    background-color: #94b0ff;
-    color: white;
-    border-radius: 50%;  /*so it's circular button */
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-  }
-  
-  #back-to-top a {
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-  }
-  
-  #back-to-top:hover {
-    background-color: #7c97d3;
-  }
-  
-  /*media queries for mobile devices*/
-  @media (max-width: 768px) {
-    body {
-      font-size: 14px;
-    }
-  
-    .header-content {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      text-align: left;
-    }
-  
-    .nav-button {
-      font-size: 0.8rem;
-      padding: 8px 16px;
-      margin: 5px;
-    }
-  
-    .logo {
-      font-size: 1.5rem;
-    }
-  
-    .container {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    #image-section img {
-      width: 100%;
-    }
-  
-    .footer {
-      font-size: 16px;
-      padding: 20px;
-    }
-  }
+}
