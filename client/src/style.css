@@ -1,3 +1,4 @@
+/*body and general page settings*/
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -10,6 +11,7 @@ body {
   overflow-x: hidden;
 }
 
+/*header and navigation*/
 header {
   color: white;
   padding: 1rem 0;
@@ -38,11 +40,11 @@ header {
     #f4c6f5,
     #a2edf4,
     #d0efff
-  );
+  ); /*gradient animated logo text effect*/
   background-size: 400% 400%;
   -webkit-background-clip: text;
   background-clip: text;
-  animation: gradientWave 20s ease infinite;
+  animation: gradientWave 20s ease infinite; /*continuous gradient wave animation*/
 }
 
 @keyframes gradientWave {
@@ -52,7 +54,7 @@ header {
   100% {
     background-position: -200% 0;
   }
-}
+} /*animation for gradient wave effect*/
 
 .nav-button {
   font-size: 1.1rem;
@@ -63,7 +65,7 @@ header {
   cursor: pointer;
   border: none;
   text-decoration: none;
-  transition: color 0.3s ease, text-shadow 0.3s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease; /*smooth hover transitions*/
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   display: inline-block;
 }
@@ -74,12 +76,13 @@ header {
   text-shadow: none;
 }
 
+/*main section styling*/
 main {
   width: 100%;
   padding: 4rem;
   max-width: 1000px;
   margin: 2rem auto;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.4); /*adds transparency to the background*/
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   color: white;
@@ -92,13 +95,14 @@ main {
 }
 
 .section {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1); /*light transparent background*/
   border-radius: 8px;
   padding: 1.5rem;
   width: 48%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+/*form and input styling*/
 form {
   display: grid;
   gap: 1rem;
@@ -108,12 +112,10 @@ form {
 h2 {
   font-size: 1.8rem;
   text-align: center;
-  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5); /*glowing text effect*/
 }
 
-input,
-select,
-button {
+input, select, button {
   padding: 0.5rem;
   font-size: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -132,7 +134,7 @@ button {
   border: 1px solid white;
   cursor: pointer;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease; /*smooth background colour change on hover*/
   font-weight: bold;
 }
 
@@ -151,8 +153,7 @@ button:hover {
   color: white;
 }
 
-select,
-option {
+select, option {
   padding: 0.5rem;
   font-size: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -166,12 +167,12 @@ option {
   color: white;
 }
 
-select:focus,
-option:focus {
+select:focus, option:focus {
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
 }
 
+/*footer section*/
 .footer {
   font-family: sans-serif;
   background-color: white;
@@ -199,11 +200,11 @@ footer img {
   width: 50px;
   height: 50px;
   object-fit: contain;
-  transition: transform 0.2s;
+  transition: transform 0.2s; /*smooth scaling effect*/
 }
 
 footer img:hover {
-  transform: scale(1.2);
+  transform: scale(1.2); /*enlarges image slightly on hover*/
 }
 
 #back-to-top {
@@ -213,7 +214,7 @@ footer img:hover {
   right: 20px;
   background-color: #94b0ff;
   color: white;
-  border-radius: 50%;
+  border-radius: 50%; /*so it's circular button */
   width: 50px;
   height: 50px;
   display: flex;
@@ -232,6 +233,7 @@ footer img:hover {
   background-color: #7c97d3;
 }
 
+/*media queries for mobile devices*/
 @media (max-width: 768px) {
   body {
     font-size: 14px;
@@ -257,7 +259,11 @@ footer img:hover {
 
   .container {
     flex-direction: column;
-    align-items: center;
+  }
+
+  main {
+    width: 125%;
+    margin: 0 auto;
   }
 
   #image-section img {
@@ -292,5 +298,6 @@ footer img:hover {
 }
 
 #applications-container div h3 {
-  margin: 8px;
+  font-weight: bold;
+  font-style: italic;
 }
