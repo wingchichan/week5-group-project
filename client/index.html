@@ -51,39 +51,6 @@
           </form>
         </section>
 
-         <!-- EDIT FORM -->
-         <section id="form-section-edit" class="section hide">
-          <h2>Update Application</h2>
-          <form id="application-form-edit">
-            <label for="company">Company:</label>
-            <input type="text" id="company-edit" name="company" disabled />
-
-            <label for="position">Job Title:</label>
-            <input type="text" id="position-edit" name="position" disabled />
-
-            <label for="applied-date">Date Applied:</label>
-            <input
-              type="text"
-              id="applied-date-edit"
-              name="applied-date"
-              disabled
-            />
-
-            <label for="status">Status:</label>
-            <select id="status-edit" name="status" required>
-              <option value="pending">Pending</option>
-              <option value="interview">Interview Scheduled</option>
-              <option value="accepted">Accepted</option>
-              <option value="rejected">Rejected</option>
-            </select>
-
-            <label for="notes">Notes:</label>
-            <input type="text" id="notes-edit" name="notes" required />
-            <input type="hidden" id="id-edit" name="id-edit" />
-            <button type="submit">Update Application</button>
-          </form>
-        </section>
-
         <section id="applications-list" class="section">
           <h2>Tracked Applications</h2>
           <div id="applications-container"></div>
@@ -106,6 +73,6 @@
       </button>
   </footer>
   
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="src/main.js"></script>
   </body>
 </html>
