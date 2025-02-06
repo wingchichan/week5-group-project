@@ -11,10 +11,12 @@ const formElem = document.getElementById("application-form");
 const formSectionEditElem = document.getElementById("form-section-edit");
 const formSectionElem = document.getElementById("form-section");
 
+
 const API_URL = "https://week5-group-project-server-i81x.onrender.com";
 
+
 async function getApplications() {
-  const response = await fetch(`${API_URL}/applications`);
+  const response = await fetch(`${API_URL}`);
   const data = await response.json();
   console.log(data);
   displayApplications(data);
@@ -123,7 +125,7 @@ formElem.addEventListener("submit", async (event) => {
   event.preventDefault(); // Prevents page from refreshing when submitted
   console.log(statusElem.value);
   // Send a POST request to the server with the new job application data
-  await fetch(`${API_URL}/applications`, {
+  await fetch(`${API_URL}`, {
     method: "POST", // Sends a POST request to the server to add a new entry
     headers: { "Content-Type": "application/json" }, // Specifies that the data is in JSON format
     body: JSON.stringify({
@@ -175,7 +177,7 @@ async function handleEdit() {
   const notesEditElem = document.getElementById("notes-edit");
   const idEditElem = document.getElementById("id-edit");
 
-  const response = await fetch(`${API_URL}/applications/${idEditElem.value}`, {
+  const response = await fetch(`${API_URL}/${idEditElem.value}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
