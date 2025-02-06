@@ -102,11 +102,11 @@ function showEditForm(entry) {
   formSectionEditElem.classList.add("show");
 }
 
-// TODO: Refactor to use FormData
+  /*TODO: Refactor to use FormData*/
 formElem.addEventListener("submit", async (event) => {
   event.preventDefault(); // Prevents page from refreshing when submitted
   console.log(statusElem.value);
-  // // Send a POST request to the server with the new job application data
+  // Send a POST request to the server with the new job application data
   await fetch(`${API_URL}/applications`, {
     method: "POST", // Sends a POST request to the server to add a new entry
     headers: { "Content-Type": "application/json" }, // Specifies that the data is in JSON format
@@ -118,6 +118,7 @@ formElem.addEventListener("submit", async (event) => {
       notes: notesElem.value,
     }),
   });
+  
   // Clear form inputs after submission
   companyElem.value = "";
   positionElem.value = "";
@@ -142,7 +143,7 @@ function resetForms() {
   // show add application form
 }
 
-// TODO: Refactor using FormData
+/* TODO: Refactor using FormData */
 // function to update existing application
 async function handleEdit() {
   const statusEditElem = document.getElementById("status-edit");
