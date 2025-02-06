@@ -83,6 +83,8 @@ async function handleDelete(id) {
 function showEditForm(entry) {
   // hide add form
   formSectionElem.classList.add("hide");
+  formSectionElem.classList.remove("show");
+
   // populate edit form
   const companyElemEdit = document.getElementById("company-edit");
   const positionElemEdit = document.getElementById("position-edit");
@@ -100,6 +102,7 @@ function showEditForm(entry) {
 
   // show edit form
   formSectionEditElem.classList.add("show");
+  formSectionEditElem.classList.remove("hide");
 }
 
 // TODO: Refactor to use FormData
@@ -133,14 +136,23 @@ const applicationFormEdit = document.getElementById("application-form-edit");
 applicationFormEdit.addEventListener("submit", async (event) => {
   event.preventDefault();
   await handleEdit();
-  resetForms();
+  formSectionElem.classList.remove("hide");
+  formSectionElem.classList.add("show");
+  formSectionEditElem.classList.remove("show");
+  formSectionEditElem.classList.add("hide");
+
+  // resetForms();
 });
 
-function resetForms() {
-  // clear edit form values
-  // toggle edit form to hide
-  // show add application form
-}
+const updateButton = document.getElementById;
+
+// function resetForms() {
+//   // clear edit form values
+
+//   // toggle edit form to hide
+//   formSectionEditElem.classList.add("hide");
+//   // show add application form
+// }
 
 // TODO: Refactor using FormData
 // function to update existing application
@@ -157,6 +169,7 @@ async function handleEdit() {
       notes: notesEditElem.value,
     }),
   });
+  getApplications();
 }
 
 // Function to format date in YYYY-MM-DD format
