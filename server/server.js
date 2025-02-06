@@ -18,7 +18,7 @@ const db = new pg.Pool({
 // app.get("/", (req, res) => res.json("Welcome to the Job Application Tracker!"));
 
 // GET all job applications
-app.get("/", async (req, res) => {
+app.get("/applications", async (req, res) => {
   const result = await db.query("SELECT * FROM job_applications");
   const jobApplication = result.rows;
   console.log(result);
@@ -26,7 +26,7 @@ app.get("/", async (req, res) => {
 });
 
 // DELETE a job application by ID
-app.delete("/:id", async (req, res) => {
+app.delete("/applications/:id", async (req, res) => {
   console.log(req.params.id);
 
   const deleted = await db.query("DELETE FROM job_applications WHERE id = $1", [
@@ -36,7 +36,7 @@ app.delete("/:id", async (req, res) => {
   res.json({ message: "Deleted", id: req.params.id });
 });
 
-app.post("/", async (req, res) => {
+app.post("/applications", async (req, res) => {
   const body = req.body; //req is the data the client is sending in a specific request
   console.log(body);
 
@@ -62,7 +62,7 @@ app.post("/", async (req, res) => {
 });
 
 // UPDATE/ PUT an application
-app.put("/:id", async (req, res) => {
+app.put("/applications/:id", async (req, res) => {
   const { id } = req.params;
   const { status } = req.body;
   const { notes } = req.body;

@@ -11,7 +11,7 @@ const formElem = document.getElementById("application-form");
 const formSectionEditElem = document.getElementById("form-section-edit");
 const formSectionElem = document.getElementById("form-section");
 
-const API_URL = "http://localhost:5678";
+const API_URL = "https://week5-group-project-server-i81x.onrender.com";
 
 async function getApplications() {
   const response = await fetch(`${API_URL}/applications`);
@@ -83,9 +83,12 @@ function displayApplications(entries) {
 
 //function to delete entry
 async function handleDelete(id) {
-  const response = await fetch(`http://localhost:5678/applications/${id}`, {
-    method: "DELETE",
-  });
+  const response = await fetch(
+    `https://week5-group-project-server-i81x.onrender.com/${id}`,
+    {
+      method: "DELETE",
+    }
+  );
   getApplications();
 }
 
@@ -115,7 +118,7 @@ function showEditForm(entry) {
   formSectionEditElem.classList.remove("hide");
 }
 
-  /*TODO: Refactor to use FormData*/
+/*TODO: Refactor to use FormData*/
 formElem.addEventListener("submit", async (event) => {
   event.preventDefault(); // Prevents page from refreshing when submitted
   console.log(statusElem.value);
@@ -131,7 +134,7 @@ formElem.addEventListener("submit", async (event) => {
       notes: notesElem.value,
     }),
   });
-  
+
   // Clear form inputs after submission
   companyElem.value = "";
   positionElem.value = "";
