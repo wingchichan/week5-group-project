@@ -66,6 +66,16 @@ function displayApplications(entries) {
     div.appendChild(deleteButton);
     div.appendChild(editButton);
 
+    if (entry.status === "accepted") {
+      div.style.backgroundColor = "teal";
+    } else if (entry.status === "rejected") {
+      div.style.backgroundColor = "maroon";
+    } else if (entry.status === "pending") {
+      div.style.backgroundColor = "orange";
+    } else if (entry.status === "interview") {
+      div.style.backgroundColor = "navy";
+    }
+
     // Append the div to the applications container
     applicationsContainerElem.appendChild(div);
   });
