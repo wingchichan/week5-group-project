@@ -83,7 +83,7 @@ function displayApplications(entries) {
 
 //function to delete entry
 async function handleDelete(id) {
-  const response = await fetch(`${API_URL}/application/${id}`, {
+  const response = await fetch(`${API_URL}/applications/${id}`, {
     method: "DELETE",
   });
   getApplications();
