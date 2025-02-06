@@ -282,3 +282,15 @@ footer img:hover {
   background-color: steelblue;
 }
 /* EDIT FORM CSS */
+
+#applications-container div button {
+  margin: 10px;
+}
+
+#applications-container div {
+  padding: 20px;
+}
+
+#applications-container div h3 {
+  margin: 8px;
+}
