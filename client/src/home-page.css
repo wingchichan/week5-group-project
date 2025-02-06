@@ -1,3 +1,4 @@
+/*body and general page settings*/
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,7 +7,7 @@ body {
     background-size: cover;
     background-position: center;
     color: white;
-    min-height: 100vh;
+    min-height: 100vh; /*ensure the page covers the full viewport height*/
     display: flex;
     flex-direction: column;
   }
@@ -24,7 +25,7 @@ body {
   }
   
   .logo-link {
-    text-decoration: none;
+    text-decoration: none; /*remove underlining from the logo link*/
   }
   
   .logo {
@@ -32,7 +33,7 @@ body {
     font-weight: bold;
     text-transform: uppercase;
     color: transparent;
-    background: linear-gradient(50deg, #a8c0ff, #ffffff, #f4c6f5, #aaf8ff, #d0efff);
+    background: linear-gradient(50deg, #a8c0ff, #ffffff, #f4c6f5, #aaf8ff, #d0efff); /*gradient animated logo text effect*/
     background-size: 400% 400%;
     -webkit-background-clip: text;
     background-clip: text;
@@ -46,7 +47,7 @@ body {
     100% {
       background-position: -200% 0;
     }
-  }
+  } /*animation for gradient wave effect*/
   
   .nav-button {
     font-size: 1.1rem;
@@ -67,6 +68,7 @@ body {
     text-shadow: none;
   }
   
+  /*main section styling*/
   main {
     width: 100%;
     max-width: 1000px;
@@ -123,13 +125,14 @@ body {
     height: auto;
     border-radius: 10px;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease; /* smooth zoom effect on hover */
   }
   
   #image-section img:hover {
     transform: scale(1.1);
   }
   
+  /*footer section*/
   .footer {
     font-family: sans-serif;
     background-color: white;
@@ -158,11 +161,11 @@ body {
     width: 50px;
     height: 50px;
     object-fit: contain;
-    transition: transform 0.2s;
+    transition: transform 0.2s;  /*smooth scaling effect*/
   }
   
   footer img:hover {
-    transform: scale(1.2);
+    transform: scale(1.2);  /*enlarges image slightly on hover*/
   }
   
   #back-to-top {
@@ -172,7 +175,7 @@ body {
     right: 20px;
     background-color: #94b0ff;
     color: white;
-    border-radius: 50%;
+    border-radius: 50%;  /*so it's circular button */
     width: 50px;
     height: 50px;
     display: flex;
@@ -191,6 +194,7 @@ body {
     background-color: #7c97d3;
   }
   
+  /*media queries for mobile devices*/
   @media (max-width: 768px) {
     body {
       font-size: 14px;
